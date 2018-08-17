@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <mapper namespace="org.mybatis.example.BlogMapper">
+   
+      
+       <insert id="insertCategory" parameterType="CategoryDTO">
+          insert into category values(c_seq.nextval,#{c_code},#{c_name})
+       </insert>
+       <select resultType="CategoryDTO" id="listCategory"> 
+       select * from category order by c_num asc 
+       </select>
+   
+         <insert id="insertProduct" parameterType="ProductDTO">
+          insert into product values(#{c_num},p_seq.nextval,#{p_code},#{p_name},#{p_img},#{p_content},#{p_price},#{p_matter},#{p_producer},sysdate,#{p_point},#{p_hashtag}, 0, 1, 0)
+       </insert>
+       
+       <!-- color추가한부분!!!!!!!!!!!!!!!!!1 -->
+       <insert id="insertColor" parameterType="ColorDTO">
+          insert into color values(#{p_num},col_seq.nextval,#{col_name},#{col_size},#{col_stock})
+       </insert>
+        <!-- color추가한부분!!!!!!!!!!!!!!!!!1 -->
+       
+       <update id="deleteMember" parameterType="int">
+          delete from member where m_num = #{m_num}<!--  and passwd = #{passwd} -->
+       </update>
+       
+       <select id="listProduct" resultType="productDTO">
+			select * from product order by p_num asc
+		</select>
+		
+		<select id="listProductAll" resultType="productDTO">
+			select * from product
+		</select>
+		
+		<select id="getProduct" parameterType="int" resultType="productDTO">
+          select * from product where p_num = #{p_num}
+       </select>
+       
+       <select id="getColor" parameterType="java.util.Map" resultType="productDTO">
+          select col_name,col_size,col_stock from color where p_num = '${sql}'
+       </select>
+       
+        <select id="onlyColor" parameterType="int" resultType="String">
+          select DISTINCT col_name from color where p_num = #{p_num}
+       </select>
+       
+       <select id="onlySize" parameterType="java.util.Map" resultType="String">
+          select  p_size from product where p_name = '${sql}'
+       </select>
+       
+         <select id="listProductByCate_new" resultType="productDTO" parameterType="java.util.Map">
+          select * from product where c_num = ${cate_str} order by p_regdate desc
+       </select>
+       
+        <select id="listProductByCate_best" resultType="productDTO" parameterType="java.util.Map">
+          select * from product where c_num = ${cate_str} order by p_sell desc
+       </select>
+       
+       <select id="listProductByCate_low" resultType="productDTO" parameterType="java.util.Map">
+          select * from product where c_num = ${cate_str} order by p_price asc
+       </select>
+       
+       <select id="listProductByCate_high" resultType="productDTO" parameterType="java.util.Map">
+          select * from product where c_num = ${cate_str} order by p_price desc
+       </select>
+       <update id="deleteProduct" parameterType="int">
+          delete from product where p_num = #{p_num}<!--  and passwd = #{passwd} -->
+       </update>
+       <select id="checkStock" parameterType="colorDTO" resultType="int">
+             select count(*) from color where p_num = #{p_num} and col_name = #{col_name} and col_size = #{col_size}
+       </select>
+       <update id="addInsertProduct" parameterType="java.util.HashMap">
+             ${sql}
+       </update> 
+       
+          <select id="listJoayo" resultType="JoayoDTO">
+         select * from joayo order by l_num asc
+      </select>
+      
+      
+      <select id="Prevent_duplication" resultType="JoayoDTO" parameterType="JoayoDTO">
+         select * from joayo where l_mem_id = #{l_mem_id} and l_pro_num = #{l_pro_num}
+      </select>
+      
+       <update id="deleteJoayo" parameterType="JoayoDTO">
+          delete from joayo where l_pro_num = #{l_pro_num} and l_mem_id=#{l_mem_id}
+       </update>
+       
+         <insert id="insertJoayo" parameterType="JoayoDTO">
+          insert into joayo values(joayo_seq.nextval,#{l_pro_num},#{l_mem_id})
+       </insert>
+       
+       <select id="getColorList" resultType="ColorDTO" parameterType="int">
+         select * from color where p_num = #{p_num}
+      </select>
+      <select id="getDetail" resultType="colorDTO" parameterType="java.util.Map">
+         select * from color where p_num = '${p_num}' and col_name = '${col_name}'
+      </select>
+      
+      <select id="getP_num" resultType="ProductDTO" parameterType="java.util.Map">
+         select p_num from product where p_code = '${sql}'
+      </select>
+       
+   </mapper>

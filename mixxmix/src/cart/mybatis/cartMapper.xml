@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <mapper namespace="org.mybatis.example.BlogMapper">
+	<insert id="insertCart" parameterType="CartDTO">
+	   	insert into cart values (#{m_id},#{p_name},#{p_img},#{p_price},#{p_count},#{p_color},#{p_size},#{p_point})
+   </insert>
+   
+   <select id="listCart" resultType="CartDTO">
+			select * from cart where m_id=#{m_id}
+   </select>
+		
+   <update id="deleteCart" parameterType="int">
+          delete from cart where p_name = '${p_name}' and p_size = '${p_size}' and p_color = '${p_color}'<!--  and passwd = #{passwd} -->
+   </update>
+   
+   <select id="countCart" parameterType="CartDTO" resultType="int">
+			select count(*) from cart where p_name = '${p_name}' and p_size = '${p_size}' and p_color = '${p_color}'
+   </select>
+   
+    <update id="updateCart" parameterType="java.util.Map">
+			${sql}
+   </update>  
+   
+   <select id="getCount" parameterType="java.util.Map" resultType="int">
+			select p_count from cart where m_id='${m_id}' and p_name= '${p_name}'and p_color= '${p_color}' and p_size= '${p_size}'  
+   </select>
+   <select id="selectCount" parameterType="java.util.Map" resultType="int">
+         select count(*) from cart where m_id='${m_id}' and p_name= '${p_name}'and p_color= '${p_color}' and p_size= '${p_size}'  
+   </select>
+</mapper>  

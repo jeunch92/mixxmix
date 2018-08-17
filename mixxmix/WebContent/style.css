@@ -1,0 +1,129 @@
+/*style.css
+/*표준 글꼴 서식 스타일*/
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+
+h1,h2,h3,h4,h5,h6{
+	font-family:'Nanum Gothic', sans-serif;
+	color:brack;
+}
+body, td, input, select, textarea, p, th{
+	font-size:13px;
+	font-family:'Nanum Gothic', sans-serif;
+	color:brack;
+	padding:4px;
+}
+
+/*표준 링크 스타일*/
+a:link{
+	color:#000000; text-decoration:none;
+	font-size:13px; font-family:verdana;
+}
+a:visited{
+	color:red; text-decoration:none;
+	font-size:13px; font-family:verdana;
+}
+a:hover{
+	color:orange; text-decoration:underline;
+	font-size:13px; font-family:verdana;
+}
+
+/*입력 양식 스타일 .은 class로 #은 id로*/
+.box{/* 배경색 네이비 */
+	background-color:#000040;
+}
+.boxContainer {
+	clear:both;
+	padding:2px;
+	border:solid 1px #d7d7d7;
+	background-color:#efefef;}
+.alignContainer01 {
+	margin:10px 0 5px 0;}
+.spaceL20 {
+	margin:0 0 0 20px;}
+.bgtbheader01 {
+	border-top:4px double #000040;
+   	border-bottom:4px double #000040;}
+.alignCenter {
+	clear:both;
+	padding:10px 0 10px 0;
+	text-align:center;}	
+.paging {
+	clear:both ;
+	text-align:center ;
+	margin:10px 0 10px 0 ;
+	font-size:1px ;
+}
+.paging .first { padding-right:2px; }
+.paging .pre { padding-right:4px; }
+.paging .on { font-size:11px ; font-family:verdana; color:#FF1E00; padding:2px 7px; font-weight:bold; }
+.paging .normal { font-size:11px ; font-family:verdana; color:#606060; padding:2px 7px; }
+.paging .next { padding-left:4px; }
+.paging .last { padding-left:2px; }	
+.maintitle {
+	height:26px;
+	padding:0 0 0 0;
+	font-size:16px; color:#000; font-weight:bold;
+	letter-spacing:-1px;
+	border-bottom:solid 1px #d0d0d0;}
+.outline{
+	border-top:4px double navy;
+	border-bottom:4px double navy;
+}
+.fc_red_b {color:#ff1e00;font-weight:bold;}
+.line{
+	border-right:1px solid gray;
+}
+.line2{
+	border-bottom:1px solid gray;
+}
+.m1{/* 배경색 : 회색 */
+	background-color:#dfdfdf;
+}
+.m2{
+	background-color:#FFCC00;
+	border-bottom:1px dotted #9933CC;
+}
+.m3{
+	border-bottom:1px dotted navy;
+}
+.pt{/* 폰트 색 : 검정, 크기 : 20px, 굵기 : 얇게 */
+	font-family: 'Nanum Gothic', sans-serif;
+	color:black;
+	font-size:20px;
+	font-weight:lighter;
+}
+.pt2{/* 폰트 색 : 회색, 크기 : 12px, 굵기 : 얇게 */
+	font-family: 'Nanum Gothic', sans-serif;
+	color:gray;
+	font-size:12px;
+	font-weight:lighter;
+}
+.pt3{/* 폰트 색 : 검정, 크기 : 17px, 굵기 : 얇게 */
+	font-family: 'Nanum Gothic', sans-serif;
+	color:black;
+	font-size:17px;
+	font-weight:lighter;
+}
+.pt4{/* 폰트 색 : 검정, 크기 : 12px, 굵기 : 얇게 */
+	font-family: 'Nanum Gothic', sans-serif;
+	color:black;
+	font-size:12px;
+	font-weight:lighter;
+}
+.location1{
+	position:relative; 
+	top:9px;
+	left:1px;
+	}
+
+#location1{position:relative; top:8px;}
+#postnum{position:relative; top:5px;}
+#readonly{background:#F2F2F2;}
+table.join_page th{
+      background:#F8EFFB;
+      border-top: 1px solid #cccccc;
+      border-right: 1px solid #cccccc;
+   }
+table.join_page td{
+      border-top: 1px solid #cccccc;
+   }
